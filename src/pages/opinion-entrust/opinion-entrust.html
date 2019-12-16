@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list radio-group [(ngModel)]="choose">
+    <ion-item *ngFor="let item of items">
+      <ion-radio value="{{item.userId}}" item-start mode="md"></ion-radio>
+      <ion-avatar item-start>
+        <img style="border-radius: 5px;float:left" onerror="this.onerror=null;src='./assets/imgs/user.png'" src="{{item.avatar}}">
+      </ion-avatar>
+      <ion-label>{{item.userName}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row style="text-align:center">
+        <ion-col col-12>
+          <button ion-button round (click)="entrust()" small style="width:100%">确认</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

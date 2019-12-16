@@ -1,0 +1,128 @@
+page-my-points {
+ 
+  .arrow-back{
+    color:#fff;
+    font-size:3rem;
+  }
+  .points-rules{
+    float: right;
+    color:#fff;
+    margin-right: 1.5rem;
+    font-size: 14px
+  }
+  .current-score{
+    width: 100%;
+    height: 160px;
+    background: #FD3334;
+    text-align: center;
+    padding-top:44px;
+    color: #fff;
+    position: relative;
+    span:nth-child(1){
+      font-size: 40px;
+    }
+    span:nth-child(2){
+      font-size: 12px;
+    }
+    .points-range{
+      position: absolute;
+      right:15px;
+      top:20px;
+      width: 67px;
+      border-radius: 10px;
+      background: #fff;
+      text-align: center;
+      display: block;
+      color:#F06F11;
+      font-size: 12px;
+      box-sizing: border-box;
+      padding: 2px 0;
+    }
+  }
+  .integral-exchange{
+    width: 100%;
+    background: #fff;
+    margin-top: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    padding: 8px; 
+      .score-exchange{
+        color:#F15848
+      }
+      .view-record{
+        color:#808285;
+        float: right;
+      }
+      .list{
+        position: relative;
+      .redeem-now{
+        position: absolute;
+        right:20px;
+        margin-bottom: 20px;
+      }
+      }
+      .item-ios h2{
+        font-size: 1.5rem;
+      }
+      .item-ios p{
+        font-size: 1.3rem;
+        color: #414042;
+      }
+      .item-ios ion-avatar[item-left], .item-ios ion-thumbnail[item-left], .item-ios ion-avatar[item-start], .item-ios ion-thumbnail[item-start]{
+        margin: 8px 8px 8px 0;
+      }
+    .list-ios > .item-block:first-child{
+      border-top:none
+    }
+    .item-ios ion-avatar ion-img, .item-ios ion-avatar img{
+      width: 100%;
+      height: 100%;
+      border-radius: 0
+    }
+    .list-ios{
+      margin:13px -14px
+    }
+    .item-ios ion-thumbnail{
+      min-width: 93px;
+      min-height:93px
+    }
+    .item-ios ion-thumbnail ion-img, .item-ios ion-thumbnail img{
+      width: 100%;
+      height: 100%;
+    }
+    .item-ios .item-button{
+      background: #FFAC5C;
+      border-radius: 10px;
+      padding:10px;
+      .button-inner{
+        color: #fff;
+        font-size: 14px;
+      }
+    }
+    .list-ios .item-block .item-inner{
+      border:none
+    }
+    .integral-details{
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  .integral-details{
+    margin-top: 10px;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 5px;
+    .integral-title{
+      color: #F15848;
+      font-size: 16px;
+      margin:5px;
+    }
+    [col-3]{
+      color:#F15848;
+      text-align: right;
+    }
+    [col-4]{
+      text-align: center;
+    }
+  }
+}

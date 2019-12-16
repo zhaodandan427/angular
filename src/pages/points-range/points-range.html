@@ -1,0 +1,19 @@
+<!--
+  积分排行
+-->
+<ion-header>
+  <ion-navbar color="headerColor">
+    <ion-title>积分排行</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ul class="integral-ranking">
+    <li *ngFor="let items of item.data;let key=index">
+      <p>
+        <span>{{key+1}}</span>
+        <span>{{items.name}} ({{items.number}})</span>
+      </p>
+      <span>{{items.rankingNumber}}</span>
+    </li>
+  </ul>
+</ion-content>

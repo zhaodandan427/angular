@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../assets/customFonts/icomoon.eot?i89fc5');
+  src:  url('../assets/customFonts/icomoon.eot?i89fc5#iefix') format('embedded-opentype'),
+  url('../assets/customFonts/icomoon.ttf?i89fc5') format('truetype'),
+  url('../assets/customFonts/icomoon.woff?i89fc5') format('woff'),
+  url('../assets/customFonts/icomoon.svg?i89fc5#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="iconcus-"], [class*=" iconcus-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconcus-arrow-left:before {
+  content: "\e900";
+}
+.iconcus-check-add:before {
+  content: "\e901";
+}
+.iconcus-check-cw .path1:before {
+  content: "\e902";
+  color: rgb(0, 0, 0);
+}
+.iconcus-check-cw .path2:before {
+  content: "\e903";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.iconcus-check-cw .path3:before {
+  content: "\e904";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.iconcus-check-dg .path1:before {
+  content: "\e905";
+  color: rgb(0, 0, 0);
+}
+.iconcus-check-dg .path2:before {
+  content: "\e906";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.iconcus-nonvisible:before {
+  content: "\e907";
+}
+.iconcus-toast-fail:before {
+  content: "\e908";
+}
+.iconcus-toast-suc:before {
+  content: "\e909";
+}
+.iconcus-tost-js:before {
+  content: "\e90a";
+}
+.iconcus-visbiles:before {
+  content: "\e90b";
+}
+

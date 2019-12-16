@@ -1,0 +1,24 @@
+<!--
+ 兑换记录
+-->
+<ion-header>
+  <ion-navbar color="headerColor">
+    <ion-title>兑换记录</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of this.items" style='padding-top: 20px;'>
+      <ion-thumbnail item-start>
+        <img src="../../assets/imgs/moren.png">
+      </ion-thumbnail>
+      <h2>{{item.name}}</h2>
+      <p>所需积分: <span>{{item.integral}}</span></p>
+      <p class="status">
+        <span>{{item.time}}</span>
+        <span>{{item.status}}</span>
+      </p>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>历史履职评价</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+        <div *ngIf="items.length==0" style="color:#999999;text-align:center;margin-top:150px">
+            <img src="./assets/imgs/null.png" style="width:150px;height:150px" alt="">
+            <p>暂无内容</p>
+        </div>
+        <ion-item *ngFor="let item of items" (click)="downloadPdf(item)">
+          <h5 class="title">{{item.sheetTitle}}</h5>
+        </ion-item>
+      </ion-list>
+
+</ion-content>

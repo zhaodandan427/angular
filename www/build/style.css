@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('icomoon.eot?26kbip');
+  src:  url('icomoon.eot?26kbip#iefix') format('embedded-opentype'),
+    url('icomoon.ttf?26kbip') format('truetype'),
+    url('icomoon.woff?26kbip') format('woff'),
+    url('icomoon.svg?26kbip#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-uniE90D:before {
+  content: "\e90d";
+}
+.icon-_n2x:before {
+  content: "\e90c";
+}
+.icon-2x11:before {
+  content: "\eaf6";
+}
+.icon-2x10:before {
+  content: "\e90a";
+}
+.icon-2x12:before {
+  content: "\e90b";
+}
+.icon-2x:before {
+  content: "\e900";
+}
+.icon-2x1:before {
+  content: "\e901";
+}
+.icon-2x2:before {
+  content: "\e902";
+}
+.icon-2x3:before {
+  content: "\e903";
+}
+.icon-2x4:before {
+  content: "\e904";
+}
+.icon-2x5:before {
+  content: "\e905";
+}
+.icon-2x6:before {
+  content: "\e906";
+}
+.icon-2x7:before {
+  content: "\e907";
+}
+.icon-2x8:before {
+  content: "\e908";
+}
+.icon-2x9:before {
+  content: "\e909";
+}
+.content-ios {
+  color: #000;
+  background-color: #DEDEDE;
+}
+.header-ios .toolbar-background-ios{
+   border:none
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+i{
+  font-style:normal
+}

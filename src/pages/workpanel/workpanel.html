@@ -1,0 +1,51 @@
+<!--
+  Generated template for the OrganizationListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <!-- <ion-icon name="arrow-back" style="color:#48A7F3;font-size: 3rem"></ion-icon> -->
+      <button ion-button clear class="btncolor" (click)="closeWindows()">
+        <ion-icon name="arrow-back" style="color:#48A7F3;font-size: 3rem"></ion-icon>
+        <!--<img src="./assets/imgs/back_n@2x.png" style="width: 12px">-->
+      </button>
+    </ion-buttons>
+    <ion-title>应用中心</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <p class="titles">常用应用（长按拖拽可调整顺序）</p>
+  <ion-grid>
+    <ion-row style="text-align:center" dragula="VAMPIRES" [(dragulaModel)]='addItems'>
+      <ion-col col-3 *ngFor="let item of addItems">
+        <img *ngIf="item.isDefault == 0" src="./assets/imgs/delete.png" style=" margin: -7px 0 0 40px;position: absolute;width: 20px;" alt="" (click)="deleteApp(item)">
+        <img *ngIf="item.isPanel==1" src="./assets/imgs/kanban.png" style="margin: 30px 0 0 0;position: absolute;width: 20px" alt="">
+        <img src="{{item.icon}}" alt="" onerror="this.onerror=null;src='./assets/imgs/apps.png'" style="width:50px;height:50px">
+        <p class="app-name">{{item.appName}}</p>
+      </ion-col>
+      <!-- <ion-col col-3 id="left">
+        <img src="./assets/imgs/frame.png" alt="" style="width:50px">
+      </ion-col> -->
+    </ion-row>
+  </ion-grid>
+
+  <div *ngFor="let app of apps">
+    <p *ngIf="app.apps.length>0" class="titles">{{app.name}}</p>
+    <ion-grid>
+      <ion-row style="text-align:center">
+        <ion-col col-3 *ngFor="let item of app.apps">
+          <img src="./assets/imgs/add.png" style=" margin: -7px 0 0 40px;position: absolute;width: 20px;" alt="" (click)="addApp(item)">
+          <img *ngIf="item.isPanel==1" src="./assets/imgs/kanban.png" style="margin: 30px 0 0 0;position: absolute;width: 20px" alt="">
+          <img src="{{item.icon}}" alt="" onerror="this.onerror=null;src='./assets/imgs/apps.png'" style="width:50px;height:50px">
+          <p class="app-name">{{item.appName}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -1,0 +1,42 @@
+page-points-range {
+  .content-ios{
+    .integral-ranking{
+      width: 100%;
+      display: flex;
+      padding-top: 10px;
+      background: #fff;
+      flex-direction: column;
+      li{
+        width: 100%;
+        flex:1;
+        display: flex;
+        border-bottom: 1px solid #DEDEDE;
+        padding: 8px;
+        p{
+          flex:1;
+          margin-left: 20px;
+          span:nth-child(1){
+            width: 30px;
+            height: 30px;
+            border:1px solid #DEDEDE;
+            display: inline-block;
+            border-radius: 100%;
+            text-align: center;
+            line-height: 30px;
+            color:#414042
+          }
+          span:nth-child(2){
+            margin-left: 20px;
+            font-size: 16px;
+            color: #414042;
+          }       
+        }
+        span{
+         color: #F15848; 
+         font-size: 16px;
+         margin-right: 4px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">关闭</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <div *ngIf="items.length==0" style="color:#999999;text-align:center;margin-top:150px">
+      <img src="./assets/imgs/null.png" style="width:150px;height:150px" alt="">
+      <p>暂无内容</p>
+    </div>
+    <ion-item *ngFor="let item of items">
+      <h2 class="title">{{item.content}}</h2>
+      <p>{{item.datetime}}</p>
+      <span class="labels" *ngFor="let lab of item.label">{{lab.key}}</span>
+    </ion-item>
+  </ion-list>
+</ion-content>

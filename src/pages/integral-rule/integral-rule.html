@@ -1,0 +1,20 @@
+<!--
+  积分规则页面
+-->
+
+<ion-header>
+  <ion-navbar color="headerColor">
+    <ion-title>积分规则</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <h2>海淀政协委员积分兑换规则说明</h2>
+  <div class="rules-content">
+    <div *ngFor="let item of this.items">
+      <p style='color:#414042'>{{item.title}}</p>
+      <p style='color:#808285'>{{item.content}}<span>10</span>份。</p>
+      <p style='color:#808285'>{{item.content2}}<span></span></p>
+    </div>
+  </div>
+
+</ion-content>

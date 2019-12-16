@@ -1,0 +1,27 @@
+page-view-record {
+    .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
+    border-bottom: none;
+    }
+    .list-ios > .item-block:first-child{
+      border-top:none
+    }
+    .item-ios ion-avatar ion-img, .item-ios ion-avatar img{
+      width: 93px;
+      height: 93px;
+      border-radius: 0
+    }
+    .item-ios ion-thumbnail ion-img, .item-ios ion-thumbnail img{
+      width: 93px;
+      height:93px
+    }
+    .status{
+      margin-top:20px;
+      display: flex;
+      span{
+        flex:1;
+      }
+      span:nth-child(2){
+        text-align: right;
+      }
+    }
+ }

@@ -1,0 +1,124 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <!-- <ion-icon name="arrow-back" style="color:#48A7F3;font-size: 3rem"></ion-icon> -->
+      <button ion-button clear class="btncolor" (click)="closeWindows()">
+        <ion-icon name="arrow-back" style="color:#48A7F3;font-size: 3rem"></ion-icon>
+        <!--<img src="./assets/imgs/back_n@2x.png" style="width: 12px">-->
+      </button>
+    </ion-buttons>
+    <ion-title>委员履职评价</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="text-align:center">
+  <h4 style="margin-top:50px">政协北京市海淀区第
+    <span> {{item.session}}</span>届委员会</h4>
+  <h4>
+    <span> {{item.year}} </span>年度委员履职记录</h4>
+  <h6 *ngIf="item.isTrial == 1">（试行）</h6>
+
+  <ion-grid class="under-div">
+    <div style="padding-left:15%">
+      <ion-row class="item">
+        <ion-col col-5 class="label">
+          委员姓名
+        </ion-col>
+        <ion-col col-1> :</ion-col>
+        <ion-col col-6 class="value">
+          {{item.owner.userName}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="item">
+        <ion-col col-5 class="label">
+          委员号
+        </ion-col>
+        <ion-col col-1> :</ion-col>
+        <ion-col col-6 class="value">
+          {{item.owner.identifier}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="item">
+        <ion-col col-5 class="label">
+          专门委员会
+        </ion-col>
+        <ion-col col-1> :</ion-col>
+        <ion-col col-6 class="value">
+          {{item.owner.specialCommittee}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="item">
+        <ion-col col-5 class="label">
+          界别
+        </ion-col>
+        <ion-col col-1> :</ion-col>
+        <ion-col col-6 class="value">
+          {{item.owner.subsector}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="item">
+        <ion-col col-5 class="label" style="font-size:12px">
+          地区政协委员会小组
+        </ion-col>
+        <ion-col col-1> :</ion-col>
+        <ion-col col-6 class="value">
+          {{item.owner.activityGroup}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="item">
+        <ion-col col-5 class="label">
+          填报日期
+        </ion-col>
+        <ion-col col-1> :</ion-col>
+        <ion-col col-6 class="value">
+          {{item.createTime}}
+        </ion-col>
+      </ion-row>
+      <!-- <div class="item">
+        <span class="label">委员号</span>：
+        <span class="value">11</span>
+      </div>
+      <div class="item">
+        <span class="label">专门委员会</span>：
+        <span class="value">1232dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd1</span>
+      </div>
+      <div class="item">
+        <span class="label">界别</span>：
+        <span class="value">11</span>
+      </div>
+      <div class="item">
+        <span class="label" style="font-size:11px">地区政协委员会小组</span>：
+        <span class="value">11</span>
+      </div>
+      <div class="item">
+        <span class="label">填报日期</span>：
+        <span class="value">11</span>
+      </div> -->
+    </div>
+    <!-- <ion-row style="text-align:center">
+        <ion-col col-1>
+            
+        </ion-col>
+      <ion-col col-5>
+        <img src="./assets/imgs/label.png" style="width:120px">
+      </ion-col>
+      <ion-col col-6 class="inputs">
+        <h6><span>{{item.owner.userName}}</span></h6>
+        <h6><span>{{item.owner.identifier}}</span></h6>
+        <h6><span>{{item.owner.specialCommittee}}</span></h6>
+        <h6><span>{{item.owner.subsector}}</span></h6>
+        <h6><span>{{item.owner.activityGroup}}</span></h6>
+        <h6><span>{{item.createTime}}</span></h6>
+      </ion-col>
+    </ion-row> -->
+
+    <ion-col col-12 class="btndiv">
+      <button ion-button round (click)="toInfo()">
+        <dd style="margin:0">点击查看</dd>
+      </button>
+    </ion-col>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-card>
+        <ion-card-header class="card-head">
+          主席会议审议意见
+        </ion-card-header>
+        <ion-card-content no-padding>
+
+          <ion-grid class="under-div">
+            <ion-row>
+              <ion-col col-12 class="answer-msg">
+
+                根据个人总结和述职情况，综合专门委员会，界别及地区政协委员活动小组建议， 经<span> 十 </span>届区政协第<span> 十三 </span>次主席会议研究，您的2019年度履职评定为
+                <u  (click)="toEdit()">{{underline}}</u><span (click)="toEdit()">{{check}}</span>等次。
+
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-5 style="padding-left:15px">
+
+              </ion-col>
+              <ion-col col-7>
+                <img src="./assets/imgs/qianzi.jpg" style="width:150px">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-12 class="answer-date">
+                2019年10月11日
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+      <ion-grid>
+        <ion-row style="text-align:center">
+          <ion-col col-12>
+            <button ion-button round (click)="toList()" small style="width:100%">确认</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>

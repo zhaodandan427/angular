@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar color="headerColor">
+    <ion-buttons start>
+      <button ion-button clear class="btncolor" (click)="closeWindows()">
+        <ion-icon name="arrow-back" class="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>我的积分</ion-title>
+    <span class="points-rules" (click)="integralRule()">积分规则</span>
+  </ion-navbar>
+  <!-- <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon> -->
+</ion-header>
+
+
+<ion-content>
+  <!-- 当前积分 -->
+
+  <div class="current-score">
+    <span>{{item.score}}</span><br />
+    <span>当前积分</span>
+    <span class="points-range" (click)="pointsRange()">积分排行</span>
+  </div>
+
+  <!-- 积分兑换 -->
+  <div class="integral-exchange">
+    <div>
+      <span class="score-exchange">积分兑换</span>
+      <span class="view-record" (click)="viewRecord()">查看积分记录</span>
+    </div>
+    <ion-list>
+      <ion-item *ngFor="let items of item.data;let key=index">
+        <ion-thumbnail item-start>
+          <img src="../../assets/imgs/moren.png">
+        </ion-thumbnail>
+        <h2>{{items.name}}</h2>
+        <p>所需积分: <span>{{items.requirintegral}}</span></p>
+        <p>已兑换<span>{{items.yinchuan}}</span>份</p>
+        <p>可兑换<span>{{items.convertible}}</span>份</p>
+        <button ion-button item-end (click)="integral(items)">立即兑换</button>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- 登录积分兑换详情 -->
+  <div class="integral-details">
+    <span class="integral-title">积分兑换</span>
+    <ion-grid *ngFor="let items of this.item.detailList;">
+      <ion-row>
+        <ion-col col-5>
+          {{items.name}}
+        </ion-col>
+        <ion-col col-4>
+          {{items.time}}
+        </ion-col>
+        <ion-col col-3>
+          <i>+</i>{{items.score}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- 加载分页 -->
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+</ion-content>

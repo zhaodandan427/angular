@@ -1,0 +1,27 @@
+page-opinion-chairman {
+    .card-head{
+        color:#8BABD0;
+        padding-bottom: 10px
+    }
+    .under-div span{
+        text-decoration:underline;
+        text-underline-position: under;
+    }
+    
+
+    .answer-title {
+        color: #58595B;
+        padding: 0 35px
+    }
+
+    .answer-date {
+        color: #58595B;
+        text-align: right;
+        padding:20px
+    }
+
+    .answer-msg {
+        padding: 0px 30px 20px;
+        text-indent: 28px
+    }
+}

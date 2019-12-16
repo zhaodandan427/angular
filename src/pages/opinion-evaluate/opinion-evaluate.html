@@ -1,0 +1,74 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card>
+      <ion-card-header class="card-head">
+        考评等级为：
+      </ion-card-header>
+      <!-- <h6 class="answer-title">考评等级为：</h6> -->
+      <ion-card-content no-padding>
+
+        <ion-grid class="under-div">
+          <ion-row radio-group [(ngModel)]="grade">
+            <ion-col col-12 style="padding-left:30px">
+              <ion-row>
+                <ion-radio value="1" mode="md"></ion-radio>
+                <ion-col col-9 no-padding style="font-size:13px">
+                    &nbsp; 优秀
+                  </ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col col-12 style="padding-left:30px">
+              <ion-row>
+                <ion-radio value="2" mode="md"></ion-radio>
+                <ion-col col-9 no-padding style="font-size:13px">
+                    &nbsp; 称职
+                  </ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col col-12 style="padding-left:30px">
+              <ion-row>
+                <ion-radio value="3" mode="md" item-end></ion-radio>
+                <ion-col col-9 no-padding style="font-size:13px">
+                    &nbsp; 努力达标
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row style="margin-top:30px">
+            <ion-col col-5 style="padding-left:15px">
+              {{sign}}
+            </ion-col>
+            <ion-col col-7>
+              <img src="{{params.signatureUrl}}" style="width:150px">
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-12 class="answer-date">
+              {{params.reviewTime}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row style="text-align:center">
+        <ion-col col-12>
+          <button ion-button round (click)="evaluate()" small style="width:100%">确认</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

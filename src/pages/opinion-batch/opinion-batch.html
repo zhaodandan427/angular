@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-list style="margin: -1px 0 20px">
+        <ion-item style="border-bottom: 0.55px solid #EDEDED;">
+            <ion-checkbox (ionChange)="checkAll()" [(ngModel)]="isAll"></ion-checkbox>
+            <ion-avatar item-start>
+                <div style="float:left;width:150px;margin-left:10px">
+                    <h2 style="margin-top:8px">全选</h2>
+                </div>
+            </ion-avatar>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <div *ngIf="items.length==0" style="color:#999999;text-align:center;margin-top:150px">
+            <img src="./assets/imgs/null.png" style="width:150px;height:150px" alt="">
+            <p>暂无内容</p>
+        </div>
+        <ion-item *ngFor="let item of items" style="border-bottom: 0.55px solid #EDEDED;">
+            <ion-checkbox (ionChange)="checkChange(item)" [(ngModel)]="item.check"></ion-checkbox>
+            <ion-avatar item-start>
+                <img style="border-radius: 5px;float:left" onerror="this.onerror=null;src='./assets/imgs/user.png'" src="{{item.avatar}}">
+                <div style="float:left;width:150px;margin-left:10px">
+                    <h2>{{item.userName}}</h2>
+                    <p *ngIf="item.grade == 0">考评结果： 未评价</p>
+                    <p *ngIf="item.grade == 1">考评结果： 优秀</p>
+                    <p *ngIf="item.grade == 2">考评结果： 称职</p>
+                    <p *ngIf="item.grade == 3">考评结果： 努力达标</p>
+                </div>
+            </ion-avatar>
+            <!-- <button ion-button outline item-end (click)="toEdit(item)">编辑</button> -->
+        </ion-item>
+    </ion-list>
+
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+      <ion-grid>
+        <ion-row style="text-align:center">
+          <ion-col col-12>
+            <button ion-button round (click)="batchClick()" small style="width:100%">确认</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>

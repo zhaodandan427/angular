@@ -1,0 +1,10 @@
+{
+  "name": "cloud",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [],
+  "pro_id": "0730c3fa",
+  "id": "0730c3fa"
+}

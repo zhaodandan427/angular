@@ -1,0 +1,607 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>委员履职评价</ion-title>
+    <ion-buttons end>
+      <button ion-button clear (click)="toHistory()" style="font-size:13px">历史履职评价</button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar mode="md" color="bai" style="background-color:#ffffff">
+    <ion-segment [(ngModel)]="tabs" mode="md">
+      <ion-segment-button value="1" isActive="true">
+        基础履职
+      </ion-segment-button>
+      <ion-segment-button value="2" [disabled]="param.basicInfo.isConfirm==0">
+        职务履职
+      </ion-segment-button>
+      <ion-segment-button value="3" [disabled]="param.positionInfo.isConfirm==0">
+        其他履职
+      </ion-segment-button>
+      <ion-segment-button value="4" [disabled]="param.othersInfo.isConfirm==0">
+        奖励信息
+      </ion-segment-button>
+      <ion-segment-button value="5" *ngIf="isEval==1">
+        审议意见
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content style="background-color:#f5f6f8">
+  <div [ngSwitch]="tabs">
+    <div *ngSwitchCase="'1'">
+      <ion-card (click)="openModal(param.basicInfo.section[0].detail,'出席政协全会情况')">
+
+        <ion-card-header class="card-head">
+          出席政协全会情况
+          <ion-icon name="ios-arrow-forward" style="float: right"></ion-icon>
+        </ion-card-header>
+
+        <ion-card-content no-padding>
+          <ion-grid class="under-div">
+            <ion-row>
+              <ion-col col-6>
+                <ion-row>
+                  <ion-col col-2>
+                    <div  [ngClass]="{'checked': param.basicInfo.section[0].info[0]==0}"></div>
+                    <div  [ngClass]="{'check': param.basicInfo.section[0].info[0]!=0}"></div>
+                  </ion-col>
+                  <ion-col col-10 no-padding style="font-size:14px">
+                    全程出席
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col col-6>
+                <ion-row>
+                  <ion-col col-2>
+                      <div  [ngClass]="{'checked': param.basicInfo.section[0].info[0]==1}"></div>
+                      <div  [ngClass]="{'check': param.basicInfo.section[0].info[0]!=1}"></div>
+                  </ion-col>
+                  <ion-col col-10 no-padding style="font-size:14px">
+                    部分环节出席
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col col-6>
+                <ion-row>
+                  <ion-col col-2>
+                      <div  [ngClass]="{'checked': param.basicInfo.section[0].info[0]==2}"></div>
+                      <div  [ngClass]="{'check': param.basicInfo.section[0].info[0]!=2}"></div>
+                  </ion-col>
+                  <ion-col col-10 no-padding style="font-size:14px">
+                    未出席
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+
+      </ion-card>
+
+      <ion-card (click)="openModal(param.basicInfo.section[1].detail,'参加学习培训情况')">
+
+        <ion-card-header class="card-head">
+          参加学习培训情况
+          <ion-icon name="ios-arrow-forward" style="float: right"></ion-icon>
+        </ion-card-header>
+
+        <ion-card-content no-padding>
+          <ion-grid class="under-div">
+            <ion-row>
+              <ion-col col-6>
+                学习报告会
+                <span>{{param.basicInfo.section[1].info[0]}}</span> 次
+              </ion-col>
+              <ion-col col-6>
+                委员沙龙
+                <span>{{param.basicInfo.section[1].info[1]}}</span> 次
+              </ion-col>
+              <ion-col col-6>
+                委员讲坛
+                <span>{{param.basicInfo.section[1].info[2]}}</span> 次
+              </ion-col>
+              <ion-col col-6>
+                委员讲堂
+                <span>{{param.basicInfo.section[1].info[3]}}</span> 次
+              </ion-col>
+              <ion-col col-6>
+                在线学习
+                <span>{{param.basicInfo.section[1].info[4]}}</span> 次
+              </ion-col>
+              <ion-col col-6>
+                其他
+                <span>{{param.basicInfo.section[1].info[5]}}</span> 次
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+
+      </ion-card>
+
+      <ion-card (click)="openModal(param.basicInfo.section[2].detail,'提交提案情况')">
+
+        <ion-card-header class="card-head">
+          提交提案情况
+          <ion-icon name="ios-arrow-forward" style="float: right"></ion-icon>
+        </ion-card-header>
+
+        <ion-card-content no-padding>
+          <ion-grid class="under-div">
+            <ion-row>
+              <ion-col col-6>
+                第一提案人
+                <span>{{param.basicInfo.section[2].info[0]}}</span> 件
+              </ion-col>
+              <ion-col col-6 style="border-left:1px solid #9D9FA2">
+                附议
+                <span>{{param.basicInfo.section[2].info[1]}}</span> 件
+              </ion-col>
+              <ion-col col-6>
+                优秀提案
+                <span>{{param.basicInfo.section[2].info[2]}}</span> 件
+              </ion-col>
+              <ion-col col-6 style="border-left:1px solid #9D9FA2">
+                优秀提案
+                <span>{{param.basicInfo.section[2].info[3]}}</span> 件
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+
+      </ion-card>
+
+      <ion-card (click)="openModal(param.basicInfo.section[3].detail,'社情民意信息采用情况')">
+
+        <ion-card-header class="card-head">
+          社情民意信息采用情况
+          <ion-icon name="ios-arrow-forward" style="float: right"></ion-icon>
+        </ion-card-header>
+
+        <ion-card-content no-padding>
+          <ion-grid class="under-div">
+            <ion-row>
+              <ion-col col-6 style="margin-top:-5px">
+                <ion-row>
+                  <ion-col col-12>
+                    国家级采用
+                    <span>{{param.basicInfo.section[3].info[0]}}</span> 件
+                  </ion-col>
+                  <ion-col col-12>
+                    市级采用
+                    <span>{{param.basicInfo.section[3].info[1]}}</span> 件
+                  </ion-col>
+                  <ion-col col-12>
+                    区级采用
+                    <span>{{param.basicInfo.section[3].info[3]}}</span> 件
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col col-6 style="margin-top:35px">
+                附议
+                <span>{{param.basicInfo.section[3].info[2]}}</span> 件
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+
+      </ion-card>
+
+      <ion-card (click)="openModal(param.basicInfo.section[4].detail,'参加专委会活动情况')">
+        <ion-card-header class="card-head">
+          参加专委会活动情况
+          <ion-icon name="ios-arrow-forward" style="float: right"></ion-icon>
+        </ion-card-header>
+        <ion-card-content no-padding>
+          <ion-grid class="under-div">
+            <ion-row>
+              <ion-col col-12>
+                参加活动共计
+                <span>{{param.basicInfo.section[4].info[0]}}</span> 次
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card (click)="openModal(param.basicInfo.section[5].detail,'参加界别活动情况')">
+        <ion-card-header class="card-head">
+          参加界别活动情况
+          <ion-icon name="ios-arrow-forward" style="float: right"></ion-icon>
+        </ion-card-header>
+        <ion-card-content no-padding>
+          <ion-grid class="under-div">
+            <ion-row>
+              <ion-col col-12>
+                参加活动共计
+                <span>{{param.basicInfo.section[5].info[0]}}</span> 次
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card (click)="openModal(param.basicInfo.section[6].detail,'参加活动小组情况')">
+        <ion-card-header class="card-head">
+          参加活动小组情况
+          <ion-icon name="ios-arrow-forward" style="float: right"></ion-icon>
+        </ion-card-header>
+        <ion-card-content no-padding>
+          <ion-grid class="under-div">
+            <ion-row>
+              <ion-col col-12>
+                参加活动共计
+                <span>{{param.basicInfo.section[6].info[0]}}</span> 次
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div *ngSwitchCase="'2'">
+      <!-- <div *ngIf="0==0" style="color:#999999;text-align:center;margin-top:100px">
+          <img src="./assets/imgs/null.png" style="width:150px;height:150px" alt="">
+          <p style="padding: 0 40px">主席会议、常委会会议、秘书长会议组成人员确认此部分内容，其他委员进入下一项确认。 </p>
+      </div> -->
+      <div *ngIf="param.positionInfo.section.length==0" style="color:#999999;text-align:center;margin-top:150px">
+        <img src="./assets/imgs/null.png" style="width:150px;height:150px" alt="">
+        <p>暂无内容</p>
+      </div>
+      <ion-card *ngIf="param.positionInfo.section.length>0" (click)="openModal(param.positionInfo.section[0].detail,'出席主席会议情况')">
+        <ion-card-header class="card-head">
+          出席主席会议情况
+          <ion-icon name="ios-arrow-forward" style="float: right"></ion-icon>
+        </ion-card-header>
+        <ion-card-content no-padding>
+          <ion-grid class="under-div">
+            <ion-row>
+              <ion-col col-6>
+                出席
+                <span>{{param.positionInfo.section[0].info[0]}}</span> 次
+              </ion-col>
+              <ion-col col-6 style="border-left:1px solid #9D9FA2">
+                列席
+                <span>{{param.positionInfo.section[0].info[1]}}</span> 次
+              </ion-col>
+              <ion-col col-6>
+                发言
+                <span>{{param.positionInfo.section[0].info[2]}}</span> 次
+              </ion-col>
+              <ion-col col-6 style="border-left:1px solid #9D9FA2">
+                发言
+                <span>{{param.positionInfo.section[0].info[3]}}</span> 次
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+      <ion-card *ngIf="param.positionInfo.section.length>0" (click)="openModal(param.positionInfo.section[1].detail,'出席常委会议情况')">
+        <ion-card-header class="card-head">
+          出席常委会议情况
+          <ion-icon name="ios-arrow-forward" style="float: right"></ion-icon>
+        </ion-card-header>
+        <ion-card-content no-padding>
+          <ion-grid class="under-div">
+            <ion-row>
+              <ion-col col-6>
+                出席
+                <span>{{param.positionInfo.section[1].info[0]}}</span> 次
+              </ion-col>
+              <ion-col col-6 style="border-left:1px solid #9D9FA2">
+                列席
+                <span>{{param.positionInfo.section[1].info[1]}}</span> 次
+              </ion-col>
+              <ion-col col-6>
+                发言
+                <span>{{param.positionInfo.section[1].info[2]}}</span> 次
+              </ion-col>
+              <ion-col col-6 style="border-left:1px solid #9D9FA2">
+                发言
+                <span>{{param.positionInfo.section[1].info[3]}}</span> 次
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+      <ion-card *ngIf="param.positionInfo.section.length>0" (click)="openModal(param.positionInfo.section[2].detail,'出席秘书长会议情况')">
+        <ion-card-header class="card-head">
+          出席秘书长会议情况
+          <ion-icon name="ios-arrow-forward" style="float: right"></ion-icon>
+        </ion-card-header>
+        <ion-card-content no-padding>
+          <ion-grid class="under-div">
+            <ion-row>
+              <ion-col col-6>
+                出席
+                <span>{{param.positionInfo.section[2].info[0]}}</span> 次
+              </ion-col>
+              <ion-col col-6 style="border-left:1px solid #9D9FA2">
+                列席
+                <span>{{param.positionInfo.section[2].info[1]}}</span> 次
+              </ion-col>
+              <ion-col col-6>
+                发言
+                <span>{{param.positionInfo.section[2].info[2]}}</span> 次
+              </ion-col>
+              <ion-col col-6 style="border-left:1px solid #9D9FA2">
+                发言
+                <span>{{param.positionInfo.section[2].info[3]}}</span> 次
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+      <ion-grid *ngIf="param.positionInfo.section.length>0" class="under-div">
+        <ion-row>
+          <ion-col col-1>
+            <img src="./assets/imgs/lingdang.png" style="width:20px">
+          </ion-col>
+          <ion-col col-11 class="other-remand">
+            主席会议、常委会会议、秘书长会议组成人员 确认此部分内容，其他委员进入下一项确认。
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div *ngSwitchCase="'3'">
+      <div class="other-remand">
+
+        基础履职及职务履职外的履职情况(如承担调研、文史资料、议政发言、特约监 督、委员讲坛/委员沙龙/委员讲座主讲嘉宾等，以及以委员身份取 得的成绩、做出的贡献等)，如有补充，请在此填写:
+        <p style="margin:0" *ngFor="let item of records">{{item.key}}</p>
+      </div>
+      <div class="other-input">
+        <ion-textarea autoresize="100" placeholder="如有补充，请在此填写:" rows="10" [(ngModel)]="record"></ion-textarea>
+      </div>
+    </div>
+    <div *ngSwitchCase="'4'">
+      <div class="other-remand">
+
+        填写本年度您及您所带领的团队获得市级以上的各类奖励:
+        <p style="margin:0" *ngFor="let item of awards">{{item.key}}</p>
+      </div>
+      <div class="other-input">
+        <ion-textarea autoresize="100" placeholder="如有补充，请在此填写:" rows="10" [(ngModel)]="award"></ion-textarea>
+      </div>
+    </div>
+    <div *ngSwitchCase="'5'">
+      <ion-card>
+        <ion-card-header class="card-head">
+          专门委员会意见
+        </ion-card-header>
+        <h6 class="answer-title">考评等级为：</h6>
+        <ion-card-content no-padding>
+
+          <ion-grid class="under-div">
+            <ion-row>
+              <ion-col col-1>
+
+              </ion-col>
+              <ion-col col-3>
+                <ion-row>
+                  <ion-col col-3>
+                    <div  [ngClass]="{'checked': param.evaluationInfo.section[0].grade==1}"></div>
+                    <div  [ngClass]="{'check': param.evaluationInfo.section[0].grade!=1}"></div>
+                  </ion-col>
+                  <ion-col col-9 no-padding style="font-size:13px">
+                    优秀
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col col-3>
+                <ion-row>
+                  <ion-col col-3>
+                    <div  [ngClass]="{'checked': param.evaluationInfo.section[0].grade==2}"></div>
+                    <div  [ngClass]="{'check': param.evaluationInfo.section[0].grade!=2}"></div>
+                  </ion-col>
+                  <ion-col col-9 no-padding style="font-size:13px">
+                    称职
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col col-4>
+                <ion-row>
+                  <ion-col col-3>
+                    <div  [ngClass]="{'checked': param.evaluationInfo.section[0].grade==3}"></div>
+                    <div  [ngClass]="{'check': param.evaluationInfo.section[0].grade!=3}"></div>
+                  </ion-col>
+                  <ion-col col-9 no-padding style="font-size:13px">
+                    努力达标
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-5 style="padding-left:15px">
+                专委会主任签字：
+              </ion-col>
+              <ion-col col-7>
+                <img src="{{param.evaluationInfo.section[0].signatureUrl}}" style="width:150px">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-12 class="answer-date">
+                {{param.evaluationInfo.section[0].reviewTime}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header class="card-head">
+          界别意见
+        </ion-card-header>
+        <h6 class="answer-title">考评等级为：</h6>
+        <ion-card-content no-padding>
+
+          <ion-grid class="under-div">
+            <ion-row>
+              <ion-col col-1>
+
+              </ion-col>
+              <ion-col col-3>
+                <ion-row>
+                  <ion-col col-3>
+                    <div  [ngClass]="{'checked': param.evaluationInfo.section[1].grade==1}"></div>
+                    <div  [ngClass]="{'check': param.evaluationInfo.section[1].grade!=1}"></div>
+                  </ion-col>
+                  <ion-col col-9 no-padding style="font-size:13px">
+                    优秀
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col col-3>
+                <ion-row>
+                  <ion-col col-3>
+                    <div  [ngClass]="{'checked': param.evaluationInfo.section[1].grade==2}"></div>
+                    <div  [ngClass]="{'check': param.evaluationInfo.section[1].grade!=2}"></div>
+                  </ion-col>
+                  <ion-col col-9 no-padding style="font-size:13px">
+                    称职
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col col-4>
+                <ion-row>
+                  <ion-col col-3>
+                    <div  [ngClass]="{'checked': param.evaluationInfo.section[1].grade==3}"></div>
+                    <div  [ngClass]="{'check': param.evaluationInfo.section[1].grade!=3}"></div>
+                  </ion-col>
+                  <ion-col col-9 no-padding style="font-size:13px">
+                    努力达标
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-5 style="padding-left:15px">
+                召集人签字：
+              </ion-col>
+              <ion-col col-7>
+                <img src="{{param.evaluationInfo.section[1].signatureUrl}}" style="width:150px">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-12 class="answer-date">
+                {{param.evaluationInfo.section[1].reviewTime}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header class="card-head">
+          活动小组意见
+        </ion-card-header>
+        <h6 class="answer-title">考评等级为：</h6>
+        <ion-card-content no-padding>
+
+          <ion-grid class="under-div">
+            <ion-row>
+              <ion-col col-1>
+
+              </ion-col>
+              <ion-col col-3>
+                <ion-row>
+                  <ion-col col-3>
+                    <div  [ngClass]="{'checked': param.evaluationInfo.section[2].grade==1}"></div>
+                    <div  [ngClass]="{'check': param.evaluationInfo.section[2].grade!=1}"></div>
+                  </ion-col>
+                  <ion-col col-9 no-padding style="font-size:13px">
+                    优秀
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col col-3>
+                <ion-row>
+                  <ion-col col-3>
+                    <div  [ngClass]="{'checked': param.evaluationInfo.section[2].grade==2}"></div>
+                    <div  [ngClass]="{'check': param.evaluationInfo.section[2].grade!=2}"></div>
+                  </ion-col>
+                  <ion-col col-9 no-padding style="font-size:13px">
+                    称职
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col col-4>
+                <ion-row>
+                  <ion-col col-3>
+                    <div  [ngClass]="{'checked': param.evaluationInfo.section[2].grade==3}"></div>
+                    <div  [ngClass]="{'check': param.evaluationInfo.section[2].grade!=3}"></div>
+                  </ion-col>
+                  <ion-col col-9 no-padding style="font-size:13px">
+                    努力达标
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-5 style="padding-left:15px">
+                组长签字：
+              </ion-col>
+              <ion-col col-7>
+                <img src="{{param.evaluationInfo.section[2].signatureUrl}}" style="width:150px">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-12 class="answer-date">
+                {{param.evaluationInfo.section[2].reviewTime}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header class="card-head">
+          主席会议审议意见
+        </ion-card-header>
+        <ion-card-content no-padding>
+
+          <ion-grid class="under-div">
+            <ion-row>
+              <ion-col col-12 class="answer-msg">
+
+                根据个人总结和述职情况，综合专门委员会，界别及地区政协委员活动小组建议， 经{{param.chairmanSession}}届区政协第{{param.conference}}次主席会议研究，您的{{param.chairmanYear}}年度履职评定为
+                <span style="color:#000" *ngIf="param.evaluationInfo.section[3].grade==1"> 优秀 </span>
+                <span style="color:#000" *ngIf="param.evaluationInfo.section[3].grade==2"> 称职 </span>
+                <span style="color:#000" *ngIf="param.evaluationInfo.section[3].grade==3"> 努力达标 </span>等次。
+
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-5 style="padding-left:15px">
+
+              </ion-col>
+              <ion-col col-7>
+                <img src="{{param.evaluationInfo.section[3].signatureUrl}}" style="width:150px">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-12 class="answer-date">
+                {{param.evaluationInfo.section[3].reviewTime}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer *ngIf="param.awardInfo.isConfirm==0">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row style="text-align:center">
+        <ion-col col-6>
+          <button ion-button round (click)="telUs()" small outline style="width:100%"> 联系我们</button>
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button round (click)="confirmPost()" small full> 确认提交</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

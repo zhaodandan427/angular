@@ -1,0 +1,69 @@
+page-opinion-evaluate {
+
+    .check {
+        width:12px;
+        height:12px;
+        background:rgba(255,255,255,1);
+        border:0.5px solid rgba(188, 190, 192, 0.6);
+        border-radius:50%;
+        margin:-3px
+    }
+    .checked {
+        width:12px;
+        height:12px;
+        background:rgba(38,170,249,1);
+        border-radius:50%;
+        margin:-3px
+    }
+    .card-head{
+        color:#8BABD0;
+        padding-bottom: 10px
+    }
+    .under-div span{
+        color:#26AAF9
+    }
+
+    .other-remand {
+        width: 96%;
+        background-color: white;
+        margin: 10px auto;
+        font-size: 14px;
+        padding: 20px;
+        line-height: 20px;
+        color: #8BABD0;
+    }
+    .other-input {
+        width: 96%;
+        background-color: white;
+        padding: 20px;
+        line-height: 20px;
+        color:#414042;
+        font-size:14px;
+        margin:-7px auto
+    }
+    
+    .answer-title {
+        color: #58595B;
+        padding: 0 35px
+    }
+
+    .answer-date {
+        color: #58595B;
+        text-align: right;
+        padding:20px
+    }
+
+    .answer-msg {
+        padding: 0px 30px 20px;
+        text-indent: 28px
+    }
+
+    .alert-head img {
+        width: 50px
+    }
+
+    .alert-icon{
+        width: 60px
+    }
+
+}

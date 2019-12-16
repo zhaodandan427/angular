@@ -1,0 +1,375 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.backleft{
+  font-size: 2rem;
+  color: #13A7FF;
+  margin-left: 16px;
+}
+
+.step-box{
+  width:  calc(100% + 40px);
+  height: 10rem;
+  background-color: #F9F9F9;
+  margin-left: -20px;
+  margin-bottom: 2.5rem;
+  margin-top: -20px;
+
+  >.step-tu{
+    width: 100%;
+    height: 6.25rem;
+    margin: 0 auto;
+    padding: 2.5rem 0 .85rem;
+
+    >span{
+      width: 33.33%;
+      height: 2.95rem;
+      display: block;
+      float: left;
+      position: relative;
+
+      >i{
+        border-radius: 50%;
+        background-color: #13A7FF;
+        line-height: 2.95rem;
+        height: 2.95rem;
+        width: 2.95rem;
+        color: #fff;
+        text-align: center;
+        font-style: normal;
+        display: block;
+        margin: 0 auto;
+      }
+
+      &:after{
+        position: absolute;
+        content: '';
+        left:-4rem;
+        bottom: 1.475rem;
+        width: calc(100% - 3.5rem);
+        border-bottom-color: #13A7FF;
+        border-bottom-width: 1px;
+        border-bottom-style:dashed;
+
+      }
+
+      &:first-child:after{
+        border-bottom:0;
+      }
+
+      &.noStep{
+        &>i{
+          background-color: #ccc;
+        }
+        &:after{
+          border-bottom-color:#ccc;
+        }
+      }
+
+    }
+  }
+
+  >.step-text{
+    width: 100%;
+    height: 1.2rem;
+    >span{
+      display: block;
+      height: 1.2rem;
+      line-height: 1.2rem;
+      text-align: center;
+      color: #333;
+      float: left;
+      width: 33.33%;
+
+      &.notxt{
+        color: #999;
+      }
+    }
+  }
+}
+
+
+.action-sheet-ios .action-sheet-button{
+  color: #333;
+}
+.action-sheet-ios .action-sheet-cancel{
+  font-weight: 400;
+}
+
+.toolbar-background-ios{
+  background-color: #fff;
+}
+.header-ios .toolbar-background-ios{
+  border-color: #EDEDED;
+}
+//.header-ios .toolbar-ios:last-child .toolbar-background-ios{
+//  border-width: 0px;
+//}
+
+/* in-flight clone */
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 0 !important;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  pointer-events: none;
+}
+/* high-performance display:none; helper */
+.gu-hide {
+  left: -9999px !important;
+}
+/* added to mirrorContainer (default = body) while dragging */
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+/* added to the source element while its mirror is dragged */
+.gu-transit {
+  opacity: 0.2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: alpha(opacity=20);
+}
+
+
+
+.item-cover {
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 60px;
+  height: 100%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.scroll-orgtree{
+  width: 100%;
+  height: 5rem;
+  background-color: #fff;
+  border-bottom: 0.55px solid #EAEAEA;
+  position: relative;
+}
+// .scroll-content{
+//   overflow-x: auto!important;
+//   color:#48A7F3;
+// }
+// .scroll-content-dj{
+//   overflow-x: auto!important;
+//   color:#DF514B;
+// }
+// .scroll-content-gh{
+//   overflow-x: auto!important;
+//   color:#48A7F3;
+// }
+.scroll-img{
+  color:#48A7F3;
+}
+.scroll-img-dj{
+  color:#DF514B;
+}
+.scroll-img-gh{
+  color:#48A7F3;
+}
+.scroll-default{
+  background-color:#48A7F3;
+}
+.scroll-default-dj{
+  background-color: #DF514B;
+}
+.scroll-default-gh{
+  background-color: #48A7F3;
+}
+li:last-child{ 
+  color:#999999;
+}
+.zzh{
+  // color:#13A7FF;
+  padding: 1px 0 0 0
+}
+
+.toggle-ios .toggle-icon {
+  border-radius: 16px;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  -webkit-transition: background-color 300ms;
+  transition: background-color 300ms;
+  pointer-events: none;
+  border: 0.55px solid #EDEDED;
+}
+.navMenu{
+  height: 5rem;
+  background-color: #fff;
+  border-bottom: 0.55px solid #EAEAEA;
+  position: relative;
+
+  >ul,>ul li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  >ul{
+    margin-left: 1.333rem;
+  }
+
+  >ul li{
+    height: 5rem;
+    line-height: 5rem;
+    font-size: 1.5rem;
+    >i{
+      font-size: 1rem;
+      color: #ccc;
+      margin-left: 5px;
+    }
+
+  }
+
+}
+::-webkit-scrollbar {
+  display: none !important;
+}
+.jiantou{
+  margin: 0 7px;
+  color: #cfcfcf;
+}
+
+//标题样式
+.toolbar-title-ios {
+  font-size: 1.6rem;
+  color: #333;
+}
+
+//弹框样式
+.alert-ios .alert-button{
+  height: 48px;
+}
+.alert-ios .alert-wrapper{
+  border-radius: 6px;
+}
+.alert-ios .alert-message {
+  font-size: 1.7rem;
+  color: #030303;
+}
+.alert-ios .alert-button:last-child{
+  font-weight: 400;
+}
+//删除弹框样式
+.alert-ios .alert-button:first-child.delete{
+  color: #FF3200!important;
+}
+
+.alert-ios .alert-button:last-child.delete{
+  color: #FF3200!important;
+}
+
+.alert-ios .alert-head {
+  //padding: 20px 16px 7px;
+  padding: 0px;
+}
+// .alert-ios .alert-title{
+//   margin-top: 0px;
+// }
+.alert-ios .alert-message, .alert-ios .alert-input-group {
+  padding: 25px;
+}
+.alert-ios .alert-sub-title {
+  padding: 0 15px;
+}
+.alert-ios .alert-sub-title span{
+  display: block;
+  text-align: left;
+  padding: 0 15px;
+}
+.alert-title .jujue{
+  padding: 25px 25px 13px 25px;
+}
+body {
+  /* margin: 0; */
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 500px;
+  min-width: 300px;
+  height: 100%;
+  max-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-drag: none;
+  -ms-content-zooming: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  word-wrap: break-word;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* text-align: center; */
+  /* margin: auto 0; */
+}
+
+/* in-flight clone */
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  pointer-events: none;
+}
+/* high-performance display:none; helper */
+.gu-hide {
+  left: -9999px !important;
+}
+/* added to mirrorContainer (default = body) while dragging */
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+/* added to the source element while its mirror is dragged */
+.gu-transit {
+  opacity: 0.2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: alpha(opacity=20);
+}
+
+.alert-icon{
+  width: 60px
+}
+
+.alert-ios .alert-head {
+  padding: 30px;
+}
+
+.alert-ios .alert-sub-title {
+  padding: 0 0px;
+}

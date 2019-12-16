@@ -1,0 +1,21 @@
+page-integral-rule {
+  .content-ios{
+    background: #fff;
+    h2{
+      width: 100%;
+      color:#000000;
+      font-size: 20px;
+      text-align: center;
+    }
+    .rules-content{
+      margin-top: 4px;
+      div{
+        font-size: 16px;
+        margin-top: 20px;
+        p:nth-child(2){
+          margin-top:6px
+        }
+      }
+    }
+  }
+}
